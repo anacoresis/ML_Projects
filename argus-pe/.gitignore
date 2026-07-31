@@ -1,0 +1,19 @@
+# Python bytecode & virtual environments
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Heavy artifacts & data
+data/*.csv
+models/*.pkl
+samples/*.exe
+samples/*.dll
+
+# Reports & testing artifacts
+*.html
+.pytest_cache/
+.DS_Store
+.vscode/
