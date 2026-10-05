@@ -45,19 +45,19 @@ def extract_features(domain):
 X = list(df['domain'].apply(extract_features))
 y = df['label'] # The answers
 
-# 3. Split the data
+# Split the data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 4. Train the model
+# Train the model
 print("[*] Training the DGA Detection AI...")
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# 5. Test accuracy
+# Test accuracy
 predictions = model.predict(X_test)
 print(f"[+] Accuracy on test data: {accuracy_score(y_test, predictions) * 100}%\n")
 
-# 6. Inference (Real-world testing)
+# Inference (Real-world testing)
 test_domains = ["microsoft.com", "vgy789huijkm.biz", "netflix.com", "p0o9i8u7y6t5.ru"]
 
 print("[*] Analyzing unknown domains:")
@@ -66,6 +66,6 @@ for domain in test_domains:
     prediction = model.predict(features)
     
     if prediction[0] == 1:
-        print(f" 🚨 DGA DETECTED : {domain}")
+        print(f" DGA DETECTED : {domain}")
     else:
-        print(f" ✅ LEGITIMATE   : {domain}")
+        print(f" LEGITIMATE   : {domain}")
